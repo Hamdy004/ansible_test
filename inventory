@@ -1,1 +1,6 @@
+[web_servers]
 ubuntu@192.168.128.129
+
+
+[db_servers]
+ubuntu@192.168.128.129 
