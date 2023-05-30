@@ -1,0 +1,4 @@
+- name: add ssh key for majin
+  authorized_key:
+    user: majin
+    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMtohNHw3XiMt3rdGQcDs9mRL8E3GkV73UsL+NOUbJHo ansible"
