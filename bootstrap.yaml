@@ -1,0 +1,38 @@
+---
+
+- hosts: all
+  become: true
+  pre_tasks:
+
+  - name: install updates (Ubuntu)
+    tags: always 
+    apt:
+      upgrade: dist
+      update_cache: yes
+    when: ansible_distribution == "Ubuntu" 
+
+- hosts: all
+  become: true
+  tasks:
+  
+  - name: create majin user
+    tags: always
+    user: 
+      name: majin
+      groups: root
+
+  - name: add ssh key for majin
+    tags: always
+    authorized_key:
+      user: majin
+      key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMtohNHw3XiMt3rdGQcDs9mRL8E3GkV73UsL+NOUbJHo ansible"
+
+  - name: add sudoers file for majin
+    tags: always 
+    copy:
+      src: sudoer_majin
+      dest: /etc/sudoers.d/majin
+      owner: root
+      group: root
+      mode: 0440
+
