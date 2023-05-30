@@ -3,4 +3,8 @@ ubuntu@192.168.128.129
 
 
 [db_servers]
-ubuntu@192.168.128.129 
+ubuntu@192.168.128.129
+
+
+[workstations]
+ubuntu-2204@192.168.128.128
